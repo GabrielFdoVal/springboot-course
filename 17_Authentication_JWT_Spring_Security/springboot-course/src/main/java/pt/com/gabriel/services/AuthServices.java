@@ -1,7 +1,5 @@
 package pt.com.gabriel.services;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -27,7 +25,7 @@ public class AuthServices {
 	@Autowired
 	private UserRepository repository;
 	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@SuppressWarnings({ "rawtypes" })
 	public ResponseEntity signin(AccountCredentialsVO data) {
 		try {
 			var username = data.getUserName();
@@ -37,7 +35,7 @@ public class AuthServices {
 			var user = repository.findByUserName(username);
 			var tokenResponse = new TokenVO();
 			if(user != null) {
-				tokenResponse = tokenProvider.createAccessToken(username, (List<String>) user.getRoles());
+				tokenResponse = tokenProvider.createAccessToken(username, user.getRoles());
 			} else {
 				throw new UsernameNotFoundException("Username "+username+" not found!");
 			}

@@ -24,7 +24,7 @@ import pt.com.gabriel.data.vo.v1.PersonVO;
 import pt.com.gabriel.services.PersonServices;
 import pt.com.gabriel.util.MediaType;
 
-//@CrossOrigin
+@CrossOrigin
 @RestController
 @RequestMapping("/api/person/v1")
 @Tag(name="People", description="Endpoints for managing people")
