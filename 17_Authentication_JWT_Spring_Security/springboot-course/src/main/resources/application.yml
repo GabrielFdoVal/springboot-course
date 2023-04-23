@@ -5,6 +5,10 @@ security:
     token:
       secret-key: 53cr37
       expire-length: 3600000
+logging:
+  level:
+    root: info
+    org.springframework.security: DEBUG
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -17,7 +21,7 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
-    show-sql: true
+    show-sql: false
 springdoc:
   pathsToMatch:
     - /auth/**
